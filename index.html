@@ -1,93 +1,106 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-<title>Background CSS Example </title>
-<style>
-#main{
-position:relative;
-}
+<html> 
+    
+    <head>
+        <!-- Meta Tag -->
+        <meta charset="utf-8">
+        
+        <!-- CSS Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="index.css">   
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        
+        <!-- D3.js Source -->
+        <script type= "text/javascript" src="https://d3js.org/d3.v4.min.js"></script> 
+    </head>
+    
+    <body>
+        <div class="container">
+            
+            <!-- Title of the project -->
+            <h1 id="title"><bold>Endangered Species Spotlight</bold></h1>
+            
+            <hr width="850">
 
-body {
-    font-family: Gill Sans, sans-serif;
-}
+            <!-- Summary of the project -->
+            <div class="row" id="summary">
+                <div class="col-md-10 col-md-offset-1">
+                    <p style="font-size: 1.2em; line-height: 1.7">
+                        Global biodiversity is declining at an alarming rate, putting the survival of other species and our own future at risk.  WWF’s 2016 Living Planet Report found global populations of fish, birds, mammals, amphibians and reptiles declined by 58% between 1970 and 2012. The objective of this project is to focus on 9 different species which are listed on the WWF website as endangered and create a visualization based on their habitat, threats and population. Each of the species play a crucial role in the ecosystem and their loss will trigger the loss of another species in that ecosystem.
+                    </p>
+                </div>
+            </div>            
 
-div#first{
+            <!-- Visualization (D3.js code) -->        
+            <div id="visual">            
+                <script type="text/javascript" src="index.js"></script>
+            </div>
 
-position: fixed;
-top:0;
-left:0;
-opacity: 0.5;
-height: 100%;
-width: 100%;
-}
+            <!-- Credits -->
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h4 class="credits">Created By</h4>
+                    <p style="font-size: 1.1em;">
+                        Madhura Abhyankar (mabhyank@ucsc.edu)<br/>
+                        Mariette Souppe (msouppe@ucsc.edu)<br/>
+                        (@ucsc.edu)<br/>
+                        In collaboration with Professor Suresh Lodha
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h4 class="credits">Designed For</h4>
+                    <p style="font-size: 1.1em;">University of California, Santa Cruz <br> CMPS 263 Data Driven Discovery and Visualization <br> Winter 2018</p>
+                </div>
+            </div>            
 
-div#second{
-
-position:absolute;
-top: 0;
-left:0;
-}
-.item1 { grid-area: header; }
-.item2 { grid-area: left; }
-.item3 { grid-area: main; }
-.item4 { grid-area: right; }
-.item5 { grid-area: footer; }
-
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'left left main main right right'
-    'footer footer footer footer footer footer';
-  grid-gap: 5px;
-  padding: 5px;
-  font-size: 25px;
-}
-</style>
-</head>
-<body>   
-<div id="main">
-<div id="first">
-</div>
-<div id="second">
-<div class="grid-container">
-  <div class="item1">
-  <h2><center>Endangered Species Spotlight</center></h2>
-  <p>Global biodiversity is declining at an alarming rate, putting the survival of other species and our own future at risk.  WWF’s 2016 Living Planet Report found global populations of fish, birds, mammals, amphibians and reptiles declined by 58% between 1970 and 2012.
-</p>
-<p>The objective of this project is to focus on 9 different species which are listed on the WWF website as endangered and create a visualization based on their habitat, threats and population. Each of the species play a crucial role in the ecosystem and their loss will trigger the loss of another species in that ecosystem. </p>
-  
-  </div>
-  <div class="item2">
-  <h3>Data Sources:</h3>
-  <a href = 'http://www.iucnredlist.org/technical-documents/spatial-data'> Dataset</a> : IUCN Red List
-  </div>
-  <div class="item3"><h3>Visualisations:</h3>
-  <ol>
-  <li><a href = 'http://infowetrust.com/endangeredsafari/'>Endangered Safari</a>
-  <li><a href = 'http://www.species-in-pieces.com/'>Species in Pieces</a>
-  <li><a href = 'http://saleiva.github.io/EcoHack2012/#'>Species Sphere</a>
-  <li><a href = 'http://blog.leapmotion.com/verge-extinction/#more-1783'>On the Verge of Extinction</a>
-  </ol>
-  </div>  
-  <div class="item4">
-  <h3>References:</h3>
-  <ol>
-  <li><a href = 'https://www.worldwildlife.org/'>WWF</a>
-  <li><a href = 'http://www.iucnredlist.org/'>IUCN Red List</a>
-  <li><a href= 'http://www.earthsendangered.com/list.asp'>Earth's Endangered</a>
-  </ol>
-  </div>
-  <div class="item5">
-  <ul>
-  <li>Created by Madhura Abhyankar in collaboration with Prof. Suresh Lodha
-  <li>CMPS263 Data Discovery and Visualization, Winter 2018
-  <li> Email - mabhyank@ucsc.edu
-  </ul>
-  </div>
-</div>
-</div>
-</div>
-</body>
+            <!-- Resources -->                    
+            <div class="row" id="sources">
+                <div class="col-md-4 col-md-offset-1">
+                    <h4 class="sources_header">Files</h4>
+                    <ul class="sources_list"> 
+                        <li><a href="https://github.com/msouppe/Data_Visualization/blob/master/Final_Project/index.html">index.html</a></li> 
+                        <li><a href="https://github.com/msouppe/Data_Visualization/blob/master/Final_Project/index.css">index.css</a></li> 
+                        <li><a href="https://github.com/msouppe/Data_Visualization/blob/master/Final_Project/index.js">index.js</a></li>
+                        <li><a href=""></a></li> 
+                        <li><a href=""></a></li> 
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="sources_header">Visual Sources</h4>
+                    <ul class="sources_list"> 
+                        <li><a href = 'http://infowetrust.com/endangeredsafari/'>Endangered Safari</a></li>
+                        <li><a href = 'http://saleiva.github.io/EcoHack2012/#'>Species Sphere</a></li>
+                        <li><a href = 'http://www.species-in-pieces.com/'>Species in Pieces</a></li>
+                        <li><a href = 'http://blog.leapmotion.com/verge-extinction/#more-1783'>On the Verge of Extinction</a></li>
+                        <li></li>
+                        <li><a href=""></a></li> 
+                        <li><a href=""></a></li>                        
+                    </ul>
+                </div>
+                <div class="col-md-">
+                    <h4 class="sources_header">Data Sources</h4>                
+                    <ul class="sources_list"> 
+                        <li><a href = 'http://www.iucnredlist.org/technical-documents/spatial-data'> Dataset : IUCN Red List </a></li> 
+                        <li></li> 
+                        <li></li> 
+                        <li></li>                        
+                        <li></li> 
+                        <li></li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    
 </html>
