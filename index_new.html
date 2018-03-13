@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html> 
+    
+    <head>
+        <!-- Meta Tag -->
+        <meta charset="utf-8">
+        
+        <!-- CSS Stylesheet -->
+        <link rel="stylesheet" type="text/css" href="index_new.css">   
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        
+        <!-- D3.js Source -->
+        <script type= "text/javascript" src="https://d3js.org/d3.v4.min.js"></script> 
+    </head>
+    
+    <body>
+        <div class="container">
+            
+            <!-- Title of the project -->
+            <h1 id="title"><bold>Endangered Species Spotlight</bold></h1>
+            
+            <hr width="850">
+
+            <!-- Summary of the project -->
+            <div class="row" id="summary">
+                <div class="col-md-10 col-md-offset-1">
+                    <p style="font-size: 1.2em; line-height: 1.7">
+                        Global biodiversity is declining at an alarming rate, putting the survival of other species and our own future at risk.  WWF’s 2016 Living Planet Report found global populations of fish, birds, mammals, amphibians and reptiles declined by 58% between 1970 and 2012. The objective of this project is to focus on 9 different species which are listed on the WWF website as endangered and create a visualization based on their habitat, threats and population. Each of the species play a crucial role in the ecosystem and their loss will trigger the loss of another species in that ecosystem.
+                    </p>
+                </div>
+            </div>     
+ <div align="right">
+  <select>
+  <option value="habitat">Habitat</option>
+  <option value="all">All</option>
+ 
+  
+  <option value="temperate_forests">Temperate forests</option>
+  <option value="oceans">Oceans</option>
+  <option value="rocks">low rocky ridges</option>
+
+</select> 
+</div>  			
+
+          
+               
+<svg width="600" height="300"></svg>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+  <script>
+  
+ /* code modified to use javascript instead of coffeescript*/
+/* declaration of variables */
+
+	
+	var svg = d3.select("svg"),
+    margin = {right: 50, left: 100},
+    width = +svg.attr("width") - margin.left - margin.right,
+    height = +svg.attr("height");
+
+
+var x = d3.scaleLinear()
+    .domain([1950, 2020])
+    .range([0, width+200])
+    .clamp(true);
+
+var slider = svg.append("g")
+    .attr("class", "slider")
+    .attr("transform", "translate(" + margin.left + "," + 450 + ")");
+
+slider.append("line")
+    .attr("class", "track")
+    .attr("x1", x.range()[0])
+    .attr("x2", x.range()[1])
+  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+    .attr("class", "track-inset")
+  .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+    .attr("class", "track-overlay")
+    .call(d3.drag()
+        .on("start.interrupt", function() { slider.interrupt(); })
+        .on("start drag", function() { hue(x.invert(d3.event.x)); }));
+
+slider.insert("g", ".track-overlay")
+    .attr("class", "ticks")
+    .attr("transform", "translate(0," + 18 + ")")
+  .selectAll("text")
+  .data(x.ticks(10))
+  .enter().append("text")
+    .attr("x", x)
+    .attr("text-anchor", "middle")
+    .text(function(d) { return d ; });
+
+var handle = slider.insert("circle", ".track-overlay")
+    .attr("class", "handle")
+    .attr("r", 9);
+
+slider.transition() // Gratuitous intro!
+    .duration(750)
+    .tween("hue", function() {
+      var i = d3.interpolate(0, 70);
+      return function(t) { hue(i(t)); };
+    });
+
+function hue(h) {
+  handle.attr("cx", x(h));
+ 
+}
+ svg.append("rect")
+        .attr("x", width+500)
+        .attr("y", height-190)
+        .attr("width", 600)
+        .attr("height", 180)
+        .attr("fill", "silver")
+        .style("stroke-size", "1px");
+
+    svg.append("rect")
+        .attr("x", width+505)
+        .attr("y", height-180)
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", "blue");
+		
+	svg.append("text")
+        .attr("class", "label")
+        .attr("x", width +650)
+        .attr("y", height-170)
+        .style("text-anchor", "end")
+        .text("Critically Endangered");
+		
+		
+		
+	 svg.append("rect")
+        .attr("x", width+505)
+        .attr("y", height-150)
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", "green");
+		
+	 svg.append("rect")
+        .attr("x", width+505)
+        .attr("y", height-120)
+        .attr("width", 12)
+        .attr("height", 12)
+        .style("fill", "red");
+</script>
+ <!-- Visualization (D3.js code) -->        
+            
+
+            <!-- Credits -->
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h4 class="credits">Created By</h4>
+                    <p style="font-size: 1.1em;">
+                        Madhura Abhyankar (mabhyank@ucsc.edu)<br/>
+                        Nehal Bengre (nbengre@ucsc.edu)<br/>
+                        Mariette Souppe (msouppe@ucsc.edu)<br/>
+                        In collaboration with Professor Suresh Lodha
+                    </p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-sm-10 col-sm-offset-1">
+                    <h4 class="credits">Designed For</h4>
+                    <p style="font-size: 1.1em;">University of California, Santa Cruz <br> CMPS 263 Data Driven Discovery and Visualization <br> Winter 2018</p>
+                </div>
+            </div>            
+
+            <!-- Resources -->                    
+            <div class="row" id="sources">
+                <div class="col-md-4 col-md-offset-1">
+                    <h4 class="sources_header">Files</h4>
+                    <ul class="sources_list"> 
+                        <li><a href="https://github.com/msouppe/Data_Visualization/blob/master/Final_Project/index.html">index.html</a></li> 
+                        <li><a href="https://github.com/msouppe/Data_Visualization/blob/master/Final_Project/index.css">index.css</a></li> 
+                        <li><a href="https://github.com/msouppe/Data_Visualization/blob/master/Final_Project/index.js">index.js</a></li>
+                        <li><a href=""></a></li> 
+                        <li><a href=""></a></li> 
+                        <li><a href=""></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="sources_header">Visual Sources</h4>
+                    <ul class="sources_list"> 
+                        <li><a href = 'http://infowetrust.com/endangeredsafari/'>Endangered Safari</a></li>
+                        <li><a href = 'http://saleiva.github.io/EcoHack2012/#'>Species Sphere</a></li>
+                        <li><a href = 'http://www.species-in-pieces.com/'>Species in Pieces</a></li>
+                        <li><a href = 'http://blog.leapmotion.com/verge-extinction/#more-1783'>On the Verge of Extinction</a></li>
+                        <li></li>
+                        <li><a href=""></a></li> 
+                        <li><a href=""></a></li>                        
+                    </ul>
+                </div>
+                <div class="col-md-">
+                    <h4 class="sources_header">Data Sources</h4>                
+                    <ul class="sources_list"> 
+                        <li><a href = 'http://www.iucnredlist.org/technical-documents/spatial-data'> Dataset : IUCN Red List </a></li> 
+                        <li></li> 
+                        <li></li> 
+                        <li></li>                        
+                        <li></li> 
+                        <li></li> 
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+</html>
