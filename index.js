@@ -1,0 +1,196 @@
+/*  Set the demensions and margins of the diagram */
+var margin = {top: 20, right: 300, bottom: 20, left: 120},
+    width = 1000 - margin.right - margin.left,
+    height = 900 - margin.top - margin.bottom,
+    padding_left = 200;
+
+/* Draw map and legend to this id on the html page */
+var svg = d3.selectAll("#timeline").append('svg').attr("width", width).attr("height", height);
+
+/* Main program */
+side_panel();
+
+var x = d3.scaleLinear()
+    .domain([1950, 2020])
+    .range([0, width+200])
+    .clamp(true);
+
+var slider = svg.append("g")
+    .attr("class", "slider")
+    .attr("transform", "translate(" + margin.left + "," + 450 + ")");
+
+    slider.append("line")
+        .attr("class", "track")
+        .attr("x1", x.range()[0])
+        .attr("x2", x.range()[1])
+      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+        .attr("class", "track-inset")
+      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+        .attr("class", "track-overlay")
+        .call(d3.drag()
+            .on("start.interrupt", function() { slider.interrupt(); })
+            .on("start drag", function() { hue(x.invert(d3.event.x)); }));
+
+    slider.insert("g", ".track-overlay")
+        .attr("class", "ticks")
+        .attr("transform", "translate(0," + 18 + ")")
+      .selectAll("text")
+      .data(x.ticks(10))
+      .enter().append("text")
+        .attr("x", x)
+        .attr("text-anchor", "middle")
+        .text(function(d) { return d ; });
+
+var handle = slider.insert("circle", ".track-overlay")
+    .attr("class", "handle")
+    .attr("r", 9);
+
+    slider.transition() // Gratuitous intro!
+        .duration(750)
+        .tween("hue", function() {
+          var i = d3.interpolate(0, 70);
+          return function(t) { hue(i(t)); };
+        });
+
+function hue(h) {
+  handle.attr("cx", x(h));
+ 
+}
+
+d3.json("data.json", function(error, data) {
+    
+    if (error) throw error;
+    
+    
+    
+    /* Source: https://stackoverflow.com/questions/21033609/nested-json-array-and-d3js */
+    data.forEach(function(d) {                              
+        d.name = d.name;                          
+        d["scientific name"] = d["scientific name"];
+        d.status = d.status;
+        d.habitat = d.habitat;
+        d.population = d.population;
+        d.trend = d.trend;
+        d.size = +d.size;
+        // not sure about time, see reference
+    });
+
+    
+    
+    
+    
+}); // End bracket for d3.json
+
+
+/* All of the function calls for the side panel */
+function side_panel() {
+    spacing();
+    habitat();
+    spacing();
+    legend();
+    spacing();
+    trend();
+}
+
+/* Function for the habitat dropdown menu */
+function habitat() {
+    
+    /* Pairing the value and text for the dropdown menu*/
+    var habit = [{value: "Tropical Forests" , text: "Tropical Forests"}, 
+                 {value: "Forests", text: "Forests"}, 
+                 {value: "Oceans", text: "Oceans"}, 
+                 {value: "Moist, dry forests", text: "Moist, dry forests"}, 
+                 {value: "Temperate Forests", text: "Temperate Forests"}, 
+                 {value: "Grasslands", text:"Grasslands" }, 
+                 {value: "Low Rocky Ridges", text: "Low Rocky Ridges"} ];
+
+    
+    /* Selecting the #key id from the HTML file and appending the dropdown
+       Taking the array from above and placing it into the dropdown menu
+    */
+    var hab = d3.select("#key")
+                .append('select')
+                .selectAll('select')
+                .data(habit)
+                .enter()
+                .append("option")
+                .attr("value", function(habit) { return habit.value; })
+                .text(function(habit) { return habit.text; });
+}
+
+/* Function for the legend - critically endangered, endangered, etc */
+function legend() {
+    
+    /* Pair lengend labal with appropriate colors */
+    var color = d3.scaleOrdinal()
+                    .domain(["Critically Endangered", "Endangered", "Vulenerable", "Near Threatened", "Least Concern"])
+                    .range(["#cc0000", "#e69500", "#ffff00", "#999966", "#bbff99"]);
+    
+    /* Spacing for the rectangles and text for the legend */
+    var legendRectSize = 50;
+    var legendSpacing = 100;
+    
+    /* Selecting the #key id from the HTML file and appending the legend */
+    var leg = d3.select("#key")
+            .append('g')
+            .attr("id", "legend")
+            .selectAll("g")
+            .data(color.domain())
+            .enter()
+            .append("p")
+                .attr("class", "key")
+                .attr('transform', function(d, i) {
+                    var height = legendRectSize;
+                    var x = 0;
+                    var y = i * height;
+                    return 'translate(' + x + ',' + y + ')';
+                });
+
+    /* Appending the rectangle for the legend */
+    leg.append('rect')
+        .attr('width', legendRectSize)
+        .attr('height', legendRectSize)
+        .style('fill', color)
+        .style('stroke', color);
+
+    /* Appending the text with the corresponding color form above */
+    leg.append('text')
+        .attr('x', legendRectSize + legendSpacing)
+        .attr('y', legendRectSize - legendSpacing)
+        .attr('dy', '1em')
+        .text(function(d) { return d; })
+}
+
+/* Function for the animal trends - increasing or decreasin */
+function trend() {
+    
+    /* Selecting the #key id from the HTML file and appending the trend legend */
+    var tren = d3.select("#key")
+            .append('g')
+            .attr("id", "trend")
+            .append("p")
+                .attr("class", "tren");
+                
+    /* Appending the word "Population" */
+    tren.append('text')
+        .style("font-weight", "bold")
+        .text("Population");
+    
+    
+    
+    tren.append('text')
+        .text("Decreasing");
+    
+}
+
+/* Function for spacing between the different functionality on the side panel */
+function spacing() {
+    
+    /* Selecting the #key id from the HTML file 
+       Refer to index.css where the height is modified
+       for the .space class
+    */
+    var space = d3.select("#key")
+                .append('p')
+                .attr("class", "space");
+}
