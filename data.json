@@ -7,10 +7,11 @@
    "population": "13,846",
    "trend": "Decreasing",
    "size":"4",
-   "time": [{"year":"2016","status":"Critically Endangered", "image":""},
-            {"year":"2000","status":"Endangered", "image":""},
-            {"year":"1996","status":"Vulnerable", "image":""},
-            {"year":"1986","status":"Endangered", "image":""}]
+   "image": "/img/init/orangutan.png", 
+   "time": [{"year":"2016","status":"Critically Endangered", "image":"/img/critical_end/orangutan.png"},
+            {"year":"2000","status":"Endangered", "image":"/img/endangered/orangutan.png"},
+            {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/orangutan.png"},
+            {"year":"1986","status":"Endangered", "image":"/img/endangered/orangutan.png"}]
  },
  {
    "name": "Black Rhino",
@@ -20,9 +21,10 @@
    "population": "5,250",
    "trend": "Increasing",
    "size":"2",
-   "time": [{"year":"2011","status":"Critically Endangered", "image":""},
-            {"year":"1996","status":"Critically Endangered", "image":""},
-            {"year":"1986","status":"Endangered", "image":""}]
+   "image": "/img/init/black_rhino.png", 
+   "time": [{"year":"2011","status":"Critically Endangered", "image":"/img/critical_end/black_rhino.png"},
+            {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/black_rhino.png"},
+            {"year":"1986","status":"Endangered", "image":"/img/endangered/black_rhino.png"}]
  },
  {
    "name": "Pygmy Three-toed Sloth",
@@ -32,8 +34,9 @@
    "population": "200",
    "trend": "Decreasing",
    "size":"7",
-   "time": [{"year":"2014","status":"Critically Endangered", "image":""},
-            {"year":"2006","status":"Critically Endangered", "image":""}]
+   "image": "/img/init/sloth.png", 
+   "time": [{"year":"2014","status":"Critically Endangered", "image":"/img/critical_end/sloth.png"},
+            {"year":"2006","status":"Critically Endangered", "image":"/img/critical_end/sloth.png"}]
  },
  {
    "name": "Hawksbill Turtle",
@@ -43,9 +46,10 @@
    "population": "20000 -23000",
    "trend": "Decreasing",
    "size":"5",
-   "time": [{"year":"2008","status":"Critically Endangered", "image":""},
-            {"year":"1996","status":"Critically Endangered", "image":""},
-            {"year":"1982","status":"Endangered", "image":""}]
+   "image": "/img/init/turtle.png", 
+   "time": [{"year":"2008","status":"Critically Endangered", "image":"/img/critical_end/turtle.png"},
+            {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/turtle.png"},
+            {"year":"1982","status":"Endangered", "image":"/img/endangered/turtle.png"}]
  },
  {
    "name": "Javan Rhino",
@@ -55,9 +59,10 @@
    "population": "60",
    "trend": "Decreasing",
    "size":"2",
-   "time": [{"year":"2008","status":"Critically Endangered", "image":""},
-            {"year":"1996","status":"Critically Endangered", "image":""},
-            {"year":"1986","status":"Endangered", "image":""}]
+   "image": "/img/init/javan_rinho.png", 
+   "time": [{"year":"2008","status":"Critically Endangered", "image":"/img/critical_end/javan_rinho.png"},
+            {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/javan_rinho.png"},
+            {"year":"1986","status":"Endangered", "image":"/img/endangered/javan_rinho.png"}]
  },
  {
    "name": "Chimpanzees",
@@ -67,9 +72,10 @@
    "population": "140,000",
    "trend": "Decreasing",
    "size":"4",
-   "time": [{"year":"2008","status":"Endangered", "image":""},
-            {"year":"1996","status":"Endangered", "image":""},
-            {"year":"1986","status":"Vulnerable", "image":""}]
+   "image": "/img/init/chimpanzee.png", 
+   "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/chimpanzee.png"},
+            {"year":"1996","status":"Endangered", "image":"/img/endangered/chimpanzee.png"},
+            {"year":"1986","status":"Vulnerable", "image":"/img/vulnerable/chimpanzee.png"}]
  },
  {
    "name": "Red Panda",
@@ -79,10 +85,11 @@
    "population": "10,000",
    "trend": "Decreasing",
    "size":"6",
-   "time": [{"year":"2016","status":"Endangered", "image":""},
-            {"year":"2008","status":"Vulnerable", "image":""},
-            {"year":"1996","status":"Endangered", "image":""},
-            {"year":"1994","status":"Vulernable", "image":""}]
+   "image": "/img/init/red_panda.png", 
+   "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/red_panda.png"},
+            {"year":"2008","status":"Vulnerable", "image":"/img/vulnerable/red_panda.png"},
+            {"year":"1996","status":"Endangered", "image":"/img/endangered/red_panda.png"},
+            {"year":"1994","status":"Vulernable", "image":"/img/vulnerable/red_panda.png"}]
  },
  {
    "name": "Tiger",
@@ -92,8 +99,9 @@
    "population": "3890",
    "trend": "Decreasing",
    "size":"3",
-   "time": [{"year":"2011","status":"Endangered", "image":""},
-            {"year":"1986","status":"Endangered", "image":""}]
+   "image": "/img/init/tiger.png", 
+   "time": [{"year":"2011","status":"Endangered", "image":"/img/endangered/tiger.png"},
+            {"year":"1986","status":"Endangered", "image":"/img/endangered/tiger.png"}]
  },
  {
    "name": "African Elephant",
@@ -103,10 +111,11 @@
    "population": "415,000",
    "trend": "Increasing",
    "size":"1",
-   "time": [{"year":"2008","status":"Endangered", "image":""},
-            {"year":"2004","status":"Vulnerable", "image":""},
-            {"year":"1996","status":"Endangered", "image":""},
-            {"year":"1986","status":"Vulnerable", "image":""}]
+   "image": "/img/init/african elephant.png", 
+   "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/african elephant.png"},
+            {"year":"2004","status":"Vulnerable", "image":"/img/vulnerable/african elephant.png"},
+            {"year":"1996","status":"Endangered", "image":"/img/endangered/african elephant.png"},
+            {"year":"1986","status":"Vulnerable", "image":"/img/vulnerable/african elephant.png"}]
  },
  {
    "name": "Blue Whale",
@@ -116,8 +125,9 @@
    "population": "10,000-25,000",
    "trend": "Increasing",
    "size":"1",
-   "time": [{"year":"2008","status":"Endangered", "image":""},
-            {"year":"1986","status":"Endangered", "image":""}]
+   "image": "/img/init/blue_whale.png", 
+   "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/blue_whale.png"},
+            {"year":"1986","status":"Endangered", "image":"/img/endangered/blue_whale.png"}]
  },
  {
    "name": "Galápagos Penguin",
@@ -127,10 +137,11 @@
    "population": "2000",
    "trend": "Decreasing",
    "size":"5",
-   "time": [{"year":"2016","status":"Endangered", "image":""},
-            {"year":"2000","status":"Endangered", "image":""},
-            {"year":"1994","status":"Vulnerable", "image":""},
-            {"year":"1988","status":"Near Threatened", "image":""}]
+   "image": "/img/init/penguin.png", 
+   "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/penguin.png"},
+            {"year":"2000","status":"Endangered", "image":"/img/endangered/penguin.png"},
+            {"year":"1994","status":"Vulnerable", "image":"/img/vulnerable/penguin.png"},
+            {"year":"1988","status":"Near Threatened", "image":"/img/threat/penguin.png"}]
  },
  {
    "name": "Cloud Copper Butterfly",
@@ -140,8 +151,9 @@
    "population": "200",
    "trend": "Decreasing",
    "size":"8",
-   "time": [{"year":"2011","status":"Endangered", "image":""},
-            {"year":"1996","status":"Vulnerable", "image":""}]
+   "image": "/img/init/butterfly.png", 
+   "time": [{"year":"2011","status":"Endangered", "image":"/img/endangered/butterfly.png"},
+            {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/butterfly.png"}]
  },
  {
    "name": "Black-footed Ferret",
@@ -151,10 +163,11 @@
    "population": "370",
    "trend": "Decreasing",
    "size":"6",
-   "time": [{"year":"2015","status":"Endangered", "image":""},
-            {"year":"2008","status":"Endangered", "image":""},
-            {"year":"1996","status":"Extinct in the Wild", "image":""},
-            {"year":"1982","status":"Endangered", "image":""}]
+   "image": "/img/init/ferrret.png", 
+   "time": [{"year":"2015","status":"Endangered", "image":"/img/endangered/ferrret.png"},
+            {"year":"2008","status":"Endangered", "image":"/img/endangered/ferrret.png"},
+            {"year":"1996","status":"Extinct in the Wild", "image":"/img/extinct/ferrret.png"},
+            {"year":"1982","status":"Endangered", "image":"/img/endangered/ferrret.png"}]
  },
  {
    "name": "Hector's Dolphin",
@@ -164,10 +177,11 @@
    "population": "7000",
    "trend": "Decreasing",
    "size":"4",
-   "time": [{"year":"2013","status":"Endangered", "image":""},
-            {"year":"2000","status":"Endangered", "image":""},
-            {"year":"1996","status":"Vulnerable", "image":""},
-            {"year":"1990","status":"Vulnerable", "image":""}]
+   "image": "/img/init/hector_dolphiin.png", 
+   "time": [{"year":"2013","status":"Endangered", "image":"/img/endangered/hector_dolphiin.png"},
+            {"year":"2000","status":"Endangered", "image":"/img/endangered/hector_dolphiin.png"},
+            {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/hector_dolphiin.png"},
+            {"year":"1990","status":"Vulnerable", "image":"/img/vulnerable/hector_dolphiin.png"}]
  },
  {
    "name": "Sea Otter",
@@ -177,8 +191,9 @@
    "population": "106,000",
    "trend": "Decreasing",
    "size":"6",
-   "time": [{"year":"2015","status":"Endangered", "image":""},
-            {"year":"2000","status":"Endangered", "image":""}]
+   "image": "/img/init/otter.png", 
+   "time": [{"year":"2015","status":"Endangered", "image":"/img/endangered/otter.png"},
+            {"year":"2000","status":"Endangered", "image":"/img/endangered/otter.png"}]
  },
  {
    "name": "Whooping Crane",
@@ -188,9 +203,10 @@
    "population": "480",
    "trend": "Increasing",
    "size":"5",
-   "time": [{"year":"2017","status":"Endangered", "image":""},
-            {"year":"1994","status":"Endangered", "image":""},
-            {"year":"1988","status":"Threatened", "image":""}]
+   "image": "/img/init/whopping_crane.png", 
+   "time": [{"year":"2017","status":"Endangered", "image":"/img/endangered/whopping_crane.png"},
+            {"year":"1994","status":"Endangered", "image":"/img/endangered/whopping_crane.png"},
+            {"year":"1988","status":"Threatened", "image":"/img/threat/whopping_crane.png"}]
  },
  {
    "name": "Darwin's Fox",
@@ -200,8 +216,9 @@
    "population": "500",
    "trend": "Decreasing",
    "size":"6",
-   "time": [{"year":"2016","status":"Endangered", "image":""},
-            {"year":"2004","status":" Critically Endangered", "image":""}]
+   "image": "/img/init/fox.png", 
+   "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/fox.png"},
+            {"year":"2004","status":" Critically Endangered", "image":"/img/critical_end/fox.png"}]
  },
  {
    "name": "Giant Kangaroo Rat",
@@ -211,8 +228,9 @@
    "population": "300",
    "trend": "Decreasing",
    "size":"7",
-   "time": [{"year":"2008","status":"Endangered", "image":""},
-            {"year":"1996","status":"Critically Endangered", "image":""}]
+   "image": "/img/init/kangaroo_rat.png", 
+   "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/kangaroo_rat.png"},
+            {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/kangaroo_rat.png"}]
  },
  {
    "name": "Jaguar",
@@ -222,9 +240,10 @@
    "population": "15000",
    "trend": "decreasing",
    "size":"3",
-   "time": [{"year":"2017","status":"Near Threatened", "image":""},
-            {"year":"2002","status":"Near Threatened", "image":""},
-            {"year":"1982","status":"Vulnerable", "image":""}]
+   "image": "/img/init/jaguar.png", 
+   "time": [{"year":"2017","status":"Near Threatened", "image":"/img/threat/jaguar.png"},
+            {"year":"2002","status":"Near Threatened", "image":"/img/threat/jaguar.png"},
+            {"year":"1982","status":"Vulnerable", "image":"/img/vulnerable/jaguar.png"}]
  },
  {
    "name": "Giant Panda",
@@ -234,8 +253,9 @@
    "population": "1864",
    "trend": "Increasing",
    "size":"5",
-   "time": [{"year":"2016","status":"Endangered", "image":""},
-            {"year":"1990","status":"Endangered", "image":""}]
+   "image": "/img/init/giant_panda.png", 
+   "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/giant_panda.png"},
+            {"year":"1990","status":"Endangered", "image":"/img/endangered/giant_panda.png"}]
  },
  {
    "name": "Polar Bear",
@@ -245,8 +265,9 @@
    "population": "22,000-31,000",
    "trend": "Decreasing",
    "size":"4",
-   "time": [{"year":"2015","status":"Vulnerable", "image":""},
-            {"year":"1982","status":"Vulnerable", "image":""}]
+   "image": "/img/init/polar_bear.png", 
+   "time": [{"year":"2015","status":"Vulnerable", "image":"/img/vulnerable/polar_bear.png"},
+            {"year":"1982","status":"Vulnerable", "image":"/img/vulnerable/polar_bear.png"}]
  },
  {
    "name": "Great White Shark",
@@ -256,8 +277,9 @@
    "population": "3500",
    "trend": "Decreasing",
    "size":"2",
-   "time": [{"year":"2009","status":"Vulnerable", "image":""},
-            {"year":"1996","status":"Vulnerable", "image":""}]
+   "image": "/img/init/great_white_shark.png", 
+   "time": [{"year":"2009","status":"Vulnerable", "image":"/img/vulnerable/great_white_shark.png"},
+            {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/great_white_shark.png"}]
  },
  {
    "name": "Snow Leopard",
@@ -267,8 +289,9 @@
    "population": "4,080-6,590",
    "trend": "Decreasing",
    "size":"4",
-   "time": [{"year":"2017","status":"Vulnerable", "image":""},
-            {"year":"1986","status":"Endangered", "image":""}]
+   "image": "/img/init/leopard.png", 
+   "time": [{"year":"2017","status":"Vulnerable", "image":"/img/vulnerable/leopard.png"},
+            {"year":"1986","status":"Endangered", "image":"/img/endangered/leopard.png"}]
  },
  {
    "name": "Asiatic Black Bear",
@@ -278,8 +301,9 @@
    "population": "30,000",
    "trend": "Decreasing",
    "size":"4",
-   "time": [{"year":"2016","status":"Vulnerable", "image":""},
-            {"year":"1990","status":"Vulnerable", "image":""}]
+   "image": "/img/init/black_bear.png", 
+   "time": [{"year":"2016","status":"Vulnerable", "image":"/img/vulnerable/black_bear.png"},
+            {"year":"1990","status":"Vulnerable", "image":"/img/vulnerable/black_bear.png"}]
  },
  {
    "name": "Burmese Python",
@@ -289,6 +313,7 @@
    "population": "2000",
    "trend": "Decreasing",
    "size":"5",
-   "time": [{"year":"2012","status":"Vulnerable", "image":""}]
+   "image": "/img/init/python.png", 
+   "time": [{"year":"2012","status":"Vulnerable", "image":"/img/vulnerable/python.png"}]
  }
 ]
