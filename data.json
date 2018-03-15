@@ -10,8 +10,7 @@
    "time": [{"year":"2016","status":"Critically Endangered", "image":""},
             {"year":"2000","status":"Endangered", "image":""},
             {"year":"1996","status":"Vulnerable", "image":""},
-            {"year":"1986","status":"Endangered", "image":""},
-            {"year":"1965","status":"Rare", "image":""}]
+            {"year":"1986","status":"Endangered", "image":""}]
  },
  {
    "name": "Black Rhino",
@@ -58,8 +57,7 @@
    "size":"2",
    "time": [{"year":"2008","status":"Critically Endangered", "image":""},
             {"year":"1996","status":"Critically Endangered", "image":""},
-            {"year":"1986","status":"Endangered", "image":""},
-            {"year":"1965","status":"Rare", "image":""}]
+            {"year":"1986","status":"Endangered", "image":""}]
  },
  {
    "name": "Chimpanzees",
@@ -84,8 +82,7 @@
    "time": [{"year":"2016","status":"Endangered", "image":""},
             {"year":"2008","status":"Vulnerable", "image":""},
             {"year":"1996","status":"Endangered", "image":""},
-            {"year":"1994","status":"Vulernable", "image":""},
-            {"year":"1988","status":"Insufficiently Known", "image":""}]
+            {"year":"1994","status":"Vulernable", "image":""}]
  },
  {
    "name": "Tiger",
@@ -144,8 +141,7 @@
    "trend": "Decreasing",
    "size":"8",
    "time": [{"year":"2011","status":"Endangered", "image":""},
-            {"year":"1996","status":"Vulnerable", "image":""},
-            {"year":"1994","status":"Rare", "image":""}]
+            {"year":"1996","status":"Vulnerable", "image":""}]
  },
  {
    "name": "Black-footed Ferret",
@@ -158,8 +154,7 @@
    "time": [{"year":"2015","status":"Endangered", "image":""},
             {"year":"2008","status":"Endangered", "image":""},
             {"year":"1996","status":"Extinct in the Wild", "image":""},
-            {"year":"1982","status":"Endangered", "image":""},
-            {"year":"1965","status":"Rare", "image":""}]
+            {"year":"1982","status":"Endangered", "image":""}]
  },
  {
    "name": "Hector's Dolphin",
@@ -172,9 +167,7 @@
    "time": [{"year":"2013","status":"Endangered", "image":""},
             {"year":"2000","status":"Endangered", "image":""},
             {"year":"1996","status":"Vulnerable", "image":""},
-            {"year":"1994","status":"Indeterminate", "image":""},
-            {"year":"1990","status":"Vulnerable", "image":""},
-            {"year":"1988","status":"Insufficiently Known", "image":""}]
+            {"year":"1990","status":"Vulnerable", "image":""}]
  },
  {
    "name": "Sea Otter",
@@ -219,8 +212,7 @@
    "trend": "Decreasing",
    "size":"7",
    "time": [{"year":"2008","status":"Endangered", "image":""},
-            {"year":"1996","status":"Critically Endangered", "image":""},
-            {"year":"1988","status":"Indeterminate", "image":""}]
+            {"year":"1996","status":"Critically Endangered", "image":""}]
  },
  {
    "name": "Jaguar",
@@ -232,7 +224,6 @@
    "size":"3",
    "time": [{"year":"2017","status":"Near Threatened", "image":""},
             {"year":"2002","status":"Near Threatened", "image":""},
-            {"year":"1996","status":"Lower Risk", "image":""},
             {"year":"1982","status":"Vulnerable", "image":""}]
  },
  {
@@ -244,8 +235,7 @@
    "trend": "Increasing",
    "size":"5",
    "time": [{"year":"2016","status":"Endangered", "image":""},
-            {"year":"1990","status":"Endangered", "image":""},
-            {"year":"1986","status":"Rare", "image":""}]
+            {"year":"1990","status":"Endangered", "image":""}]
  },
  {
    "name": "Polar Bear",
@@ -256,8 +246,6 @@
    "trend": "Decreasing",
    "size":"4",
    "time": [{"year":"2015","status":"Vulnerable", "image":""},
-            {"year":"2006","status":"Vulnerable", "image":""},
-            {"year":"1996","status":"Lower Risk", "image":""},
             {"year":"1982","status":"Vulnerable", "image":""}]
  },
  {
