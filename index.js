@@ -123,7 +123,7 @@ function legend() {
     
     /* Pair lengend labal with appropriate colors */
     var color = d3.scaleOrdinal()
-                    .domain(["Critically Endangered", "Endangered", "Vulenerable", "Near Threatened", "Least Concern"])
+                    .domain(["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern"])
                     .range(["#cc0000", "#e69500", "#ffff00", "#999966", "#bbff99"]);
     
     /* Spacing for the rectangles and text for the legend */
