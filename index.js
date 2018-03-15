@@ -57,13 +57,13 @@ function hue(h) {
  
 }
 
+/* Getting data from the json file */
 d3.json("data.json", function(error, data) {
     
     if (error) throw error;
     
-    
-    
-    /* Source: https://stackoverflow.com/questions/21033609/nested-json-array-and-d3js */
+    /* Converting the data into ints, strings accordingly 
+       Source: https://stackoverflow.com/questions/21033609/nested-json-array-and-d3js */
     data.forEach(function(d) {                              
         d.name = d.name;                          
         d["scientific name"] = d["scientific name"];
@@ -74,10 +74,6 @@ d3.json("data.json", function(error, data) {
         d.size = +d.size;
         // not sure about time, see reference
     });
-
-    
-    
-    
     
 }); // End bracket for d3.json
 
