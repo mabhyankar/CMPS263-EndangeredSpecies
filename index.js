@@ -54,7 +54,6 @@ var handle = slider.insert("circle", ".track-overlay")
 
 function hue(h) {
   handle.attr("cx", x(h));
- 
 }
 
 /* Getting data from the json file */
@@ -72,8 +71,38 @@ d3.json("data.json", function(error, data) {
         d.population = d.population;
         d.trend = d.trend;
         d.size = +d.size;
+        d.image = d.image;
         // not sure about time, see reference
     });
+    
+//    console.log(data[3].image);
+    
+    var animals = svg.append("svg:image")
+                    .attr("class", "images")
+                    .data(data)
+                    .attr("height", function(d) {
+                        console.log(d.size);
+                        return d.size * 30
+                    })
+//                    .attr("width", 100)
+                    .attr("x", 400)
+                    .attr("y", 200)
+                    .attr("xlink:href", function(d) {
+//                        console.log(this.parentNode);
+                        console.log(d);
+                        return d.image
+                    });
+//                    .attr("transform", (d, i) => "translate(10," + (10 + i * 40) + ")");
+    
+//    var images  = animals.select("image")
+//                    .data(d => d3.range(d.data))
+//                    .enter()
+//                        .attr("x", function(d, i) {
+//        return (i * 35);
+//    })
+
+
+
     
 }); // End bracket for d3.json
 
@@ -95,7 +124,7 @@ function habitat() {
     var habit = [{value: "Tropical Forests" , text: "Tropical Forests"}, 
                  {value: "Forests", text: "Forests"}, 
                  {value: "Oceans", text: "Oceans"}, 
-                 {value: "Moist, dry forests", text: "Moist, dry forests"}, 
+                 {value: "Moist, Dry forests", text: "Moist, Dry forests"}, 
                  {value: "Temperate Forests", text: "Temperate Forests"}, 
                  {value: "Grasslands", text:"Grasslands" }, 
                  {value: "Low Rocky Ridges", text: "Low Rocky Ridges"} ];

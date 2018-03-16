@@ -7,7 +7,9 @@
    "population": "13,846",
    "trend": "Decreasing",
    "size":"4",
-   "image": "/img/init/orangutan.png", 
+   "image": "/img/init/orangutan.png",
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2016","status":"Critically Endangered", "image":"/img/critical_end/orangutan.png"},
             {"year":"2000","status":"Endangered", "image":"/img/endangered/orangutan.png"},
             {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/orangutan.png"},
@@ -22,6 +24,8 @@
    "trend": "Increasing",
    "size":"2",
    "image": "/img/init/black_rhino.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2011","status":"Critically Endangered", "image":"/img/critical_end/black_rhino.png"},
             {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/black_rhino.png"},
             {"year":"1986","status":"Endangered", "image":"/img/endangered/black_rhino.png"}]
@@ -35,6 +39,8 @@
    "trend": "Decreasing",
    "size":"7",
    "image": "/img/init/sloth.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2014","status":"Critically Endangered", "image":"/img/critical_end/sloth.png"},
             {"year":"2006","status":"Critically Endangered", "image":"/img/critical_end/sloth.png"}]
  },
@@ -47,6 +53,8 @@
    "trend": "Decreasing",
    "size":"5",
    "image": "/img/init/turtle.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2008","status":"Critically Endangered", "image":"/img/critical_end/turtle.png"},
             {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/turtle.png"},
             {"year":"1982","status":"Endangered", "image":"/img/endangered/turtle.png"}]
@@ -60,6 +68,8 @@
    "trend": "Decreasing",
    "size":"2",
    "image": "/img/init/javan_rinho.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2008","status":"Critically Endangered", "image":"/img/critical_end/javan_rinho.png"},
             {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/javan_rinho.png"},
             {"year":"1986","status":"Endangered", "image":"/img/endangered/javan_rinho.png"}]
@@ -73,6 +83,8 @@
    "trend": "Decreasing",
    "size":"4",
    "image": "/img/init/chimpanzee.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/chimpanzee.png"},
             {"year":"1996","status":"Endangered", "image":"/img/endangered/chimpanzee.png"},
             {"year":"1986","status":"Vulnerable", "image":"/img/vulnerable/chimpanzee.png"}]
@@ -86,6 +98,8 @@
    "trend": "Decreasing",
    "size":"6",
    "image": "/img/init/red_panda.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/red_panda.png"},
             {"year":"2008","status":"Vulnerable", "image":"/img/vulnerable/red_panda.png"},
             {"year":"1996","status":"Endangered", "image":"/img/endangered/red_panda.png"},
@@ -99,7 +113,9 @@
    "population": "3890",
    "trend": "Decreasing",
    "size":"3",
-   "image": "/img/init/tiger.png", 
+   "image": "/img/init/tiger.png",
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2011","status":"Endangered", "image":"/img/endangered/tiger.png"},
             {"year":"1986","status":"Endangered", "image":"/img/endangered/tiger.png"}]
  },
@@ -111,7 +127,9 @@
    "population": "415,000",
    "trend": "Increasing",
    "size":"1",
-   "image": "/img/init/african elephant.png", 
+   "image": "/img/init/african elephant.png",
+   "x": 5,
+   "y": 10, 
    "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/african elephant.png"},
             {"year":"2004","status":"Vulnerable", "image":"/img/vulnerable/african elephant.png"},
             {"year":"1996","status":"Endangered", "image":"/img/endangered/african elephant.png"},
@@ -126,6 +144,8 @@
    "trend": "Increasing",
    "size":"1",
    "image": "/img/init/blue_whale.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/blue_whale.png"},
             {"year":"1986","status":"Endangered", "image":"/img/endangered/blue_whale.png"}]
  },
@@ -138,6 +158,8 @@
    "trend": "Decreasing",
    "size":"5",
    "image": "/img/init/penguin.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/penguin.png"},
             {"year":"2000","status":"Endangered", "image":"/img/endangered/penguin.png"},
             {"year":"1994","status":"Vulnerable", "image":"/img/vulnerable/penguin.png"},
@@ -152,6 +174,8 @@
    "trend": "Decreasing",
    "size":"8",
    "image": "/img/init/butterfly.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2011","status":"Endangered", "image":"/img/endangered/butterfly.png"},
             {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/butterfly.png"}]
  },
@@ -163,7 +187,9 @@
    "population": "370",
    "trend": "Decreasing",
    "size":"6",
-   "image": "/img/init/ferrret.png", 
+   "image": "/img/init/ferrret.png",
+   "x": 5,
+   "y": 10, 
    "time": [{"year":"2015","status":"Endangered", "image":"/img/endangered/ferrret.png"},
             {"year":"2008","status":"Endangered", "image":"/img/endangered/ferrret.png"},
             {"year":"1996","status":"Extinct in the Wild", "image":"/img/extinct/ferrret.png"},
@@ -178,6 +204,8 @@
    "trend": "Decreasing",
    "size":"4",
    "image": "/img/init/hector_dolphiin.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2013","status":"Endangered", "image":"/img/endangered/hector_dolphiin.png"},
             {"year":"2000","status":"Endangered", "image":"/img/endangered/hector_dolphiin.png"},
             {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/hector_dolphiin.png"},
@@ -192,6 +220,8 @@
    "trend": "Decreasing",
    "size":"6",
    "image": "/img/init/otter.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2015","status":"Endangered", "image":"/img/endangered/otter.png"},
             {"year":"2000","status":"Endangered", "image":"/img/endangered/otter.png"}]
  },
@@ -204,6 +234,8 @@
    "trend": "Increasing",
    "size":"5",
    "image": "/img/init/whopping_crane.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2017","status":"Endangered", "image":"/img/endangered/whopping_crane.png"},
             {"year":"1994","status":"Endangered", "image":"/img/endangered/whopping_crane.png"},
             {"year":"1988","status":"Threatened", "image":"/img/threat/whopping_crane.png"}]
@@ -217,6 +249,8 @@
    "trend": "Decreasing",
    "size":"6",
    "image": "/img/init/fox.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/fox.png"},
             {"year":"2004","status":" Critically Endangered", "image":"/img/critical_end/fox.png"}]
  },
@@ -229,6 +263,8 @@
    "trend": "Decreasing",
    "size":"7",
    "image": "/img/init/kangaroo_rat.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2008","status":"Endangered", "image":"/img/endangered/kangaroo_rat.png"},
             {"year":"1996","status":"Critically Endangered", "image":"/img/critical_end/kangaroo_rat.png"}]
  },
@@ -241,6 +277,8 @@
    "trend": "decreasing",
    "size":"3",
    "image": "/img/init/jaguar.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2017","status":"Near Threatened", "image":"/img/threat/jaguar.png"},
             {"year":"2002","status":"Near Threatened", "image":"/img/threat/jaguar.png"},
             {"year":"1982","status":"Vulnerable", "image":"/img/vulnerable/jaguar.png"}]
@@ -254,6 +292,8 @@
    "trend": "Increasing",
    "size":"5",
    "image": "/img/init/giant_panda.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2016","status":"Endangered", "image":"/img/endangered/giant_panda.png"},
             {"year":"1990","status":"Endangered", "image":"/img/endangered/giant_panda.png"}]
  },
@@ -266,6 +306,8 @@
    "trend": "Decreasing",
    "size":"4",
    "image": "/img/init/polar_bear.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2015","status":"Vulnerable", "image":"/img/vulnerable/polar_bear.png"},
             {"year":"1982","status":"Vulnerable", "image":"/img/vulnerable/polar_bear.png"}]
  },
@@ -278,6 +320,8 @@
    "trend": "Decreasing",
    "size":"2",
    "image": "/img/init/great_white_shark.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2009","status":"Vulnerable", "image":"/img/vulnerable/great_white_shark.png"},
             {"year":"1996","status":"Vulnerable", "image":"/img/vulnerable/great_white_shark.png"}]
  },
@@ -290,6 +334,8 @@
    "trend": "Decreasing",
    "size":"4",
    "image": "/img/init/leopard.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2017","status":"Vulnerable", "image":"/img/vulnerable/leopard.png"},
             {"year":"1986","status":"Endangered", "image":"/img/endangered/leopard.png"}]
  },
@@ -302,6 +348,8 @@
    "trend": "Decreasing",
    "size":"4",
    "image": "/img/init/black_bear.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2016","status":"Vulnerable", "image":"/img/vulnerable/black_bear.png"},
             {"year":"1990","status":"Vulnerable", "image":"/img/vulnerable/black_bear.png"}]
  },
@@ -314,6 +362,8 @@
    "trend": "Decreasing",
    "size":"5",
    "image": "/img/init/python.png", 
+   "x": 5,
+   "y": 10,
    "time": [{"year":"2012","status":"Vulnerable", "image":"/img/vulnerable/python.png"}]
  }
 ]
