@@ -110,7 +110,7 @@ d3.json("data.json", function(error, data) {
                     .attr("class", "images")
                     .attr("height", function(d) {
                         // console.log((1 / d.size) * 700)
-                        return (1 / d.size) * 300
+                        return (1 / d.size) * 290
                     })
                     .attr("x", function(d) {
                         return d.x
