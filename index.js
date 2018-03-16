@@ -77,52 +77,50 @@ d3.json("data.json", function(error, data) {
     
 //    console.log(data[3].image);
     
-    var animals = svg.append("svg:image")
-                    .attr("class", "images")
-                    .data(data)
-//                    .enter()
-//                    .append("image")
+//    var animals = svg.append("svg:image")
 //                    .attr("class", "images")
+//                    .data(data)
+////                    .enter()
+////                    .append("image")
+////                    .attr("class", "images")
+//                    .attr("height", function(d) {
+//                        console.log((1 / d.size) * 700)
+//                        return (1 / d.size) * 700
+//                    })
+//                    .attr("x", function(d) {
+//                        console.log(d.x)
+//                        return d.x
+//                    })
+//                    .attr("y", function(d) {
+//                        return d.y
+//                    })
+//                    .attr("xlink:href", function(d) {
+//                        console.log(d.image);
+//                        return d.image
+//                    });
+    
+//    var animals = svg.append("svg")
+//                    .data(data)
+//                    .enter()  
+    
+    var images = svg.append("svg").selectAll("svg")
+                    .data(data)
+                    .enter()
+                    .append("image")
+                    .attr("class", "images")
                     .attr("height", function(d) {
-                        console.log((1 / d.size) * 700)
-                        return (1 / d.size) * 700
+                        // console.log((1 / d.size) * 700)
+                        return (1 / d.size) * 300
                     })
                     .attr("x", function(d) {
-                        console.log(d.x)
                         return d.x
                     })
                     .attr("y", function(d) {
                         return d.y
                     })
                     .attr("xlink:href", function(d) {
-                        console.log(d.image);
                         return d.image
                     });
-    
-//    var animals = svg.append("svg")
-//                    .data(data)
-//                    .enter()
-//    
-//    var images = animals.selectAll("svg")
-//                    .data(data)
-//                    .enter()
-//                    .append("image")
-//                    .attr("class", "images")
-//                    .attr("height", function(d) {
-//                        // console.log((1 / d.size) * 700)
-//                        return (1 / d.size) * 700
-//                    })
-//                    .attr("x", function(d) {
-//                        console.log(d.x)
-//                        return d.x + 30
-//                    })
-//                    .attr("y", function(d) {
-//                        return d.y + 30
-//                    })
-//                    .attr("xlink:href", function(d) {
-//                        // console.log(d.image);
-//                        return d.image
-//                    });
 
 
     
