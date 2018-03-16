@@ -75,34 +75,15 @@ d3.json("data.json", function(error, data) {
         // not sure about time, see reference
     });
     
-//    console.log(data[3].image);
+    /* Define tool tip */
+    var tip = d3.tip()
+        .attr("class", "d3-tip")
+        .offset([-10, 0])
+        .html(function(d) {
+            return d.name + "<br/> Scientific Name: " + d["scientific name"] + " <br/> Population: " + d.population + " <br/> Habitat: " + d.habitat;
+        });
     
-//    var animals = svg.append("svg:image")
-//                    .attr("class", "images")
-//                    .data(data)
-////                    .enter()
-////                    .append("image")
-////                    .attr("class", "images")
-//                    .attr("height", function(d) {
-//                        console.log((1 / d.size) * 700)
-//                        return (1 / d.size) * 700
-//                    })
-//                    .attr("x", function(d) {
-//                        console.log(d.x)
-//                        return d.x
-//                    })
-//                    .attr("y", function(d) {
-//                        return d.y
-//                    })
-//                    .attr("xlink:href", function(d) {
-//                        console.log(d.image);
-//                        return d.image
-//                    });
-    
-//    var animals = svg.append("svg")
-//                    .data(data)
-//                    .enter()  
-    
+    /* Adding images to canvas */
     var images = svg.append("svg").selectAll("svg")
                     .data(data)
                     .enter()
@@ -121,8 +102,11 @@ d3.json("data.json", function(error, data) {
                     .attr("xlink:href", function(d) {
                         return d.image
                     });
-
-
+    
+    /* Calling the tool tip for the animals */
+    images.call(tip);
+    images.on("mouseover", tip.show);
+    images.on("mouseout", tip.hide);
     
 }); // End bracket for d3.json
 
