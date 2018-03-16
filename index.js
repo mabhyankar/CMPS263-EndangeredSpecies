@@ -11,7 +11,7 @@ var svg = d3.selectAll("#timeline").append('svg').attr("width", width).attr("hei
 side_panel();
 
 var x = d3.scaleLinear()
-    .domain([1950, 2020])
+    .domain([1975, 2020])
     .range([0, width+200])
     .clamp(true);
 
