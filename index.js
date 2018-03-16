@@ -80,27 +80,49 @@ d3.json("data.json", function(error, data) {
     var animals = svg.append("svg:image")
                     .attr("class", "images")
                     .data(data)
+//                    .enter()
+//                    .append("image")
+//                    .attr("class", "images")
                     .attr("height", function(d) {
-                        console.log(d.size);
-                        return d.size * 30
+                        console.log((1 / d.size) * 700)
+                        return (1 / d.size) * 700
                     })
-//                    .attr("width", 100)
-                    .attr("x", 400)
-                    .attr("y", 200)
+                    .attr("x", function(d) {
+                        console.log(d.x)
+                        return d.x
+                    })
+                    .attr("y", function(d) {
+                        return d.y
+                    })
                     .attr("xlink:href", function(d) {
-//                        console.log(this.parentNode);
-                        console.log(d);
+                        console.log(d.image);
                         return d.image
                     });
-//                    .attr("transform", (d, i) => "translate(10," + (10 + i * 40) + ")");
     
-//    var images  = animals.select("image")
-//                    .data(d => d3.range(d.data))
+//    var animals = svg.append("svg")
+//                    .data(data)
 //                    .enter()
-//                        .attr("x", function(d, i) {
-//        return (i * 35);
-//    })
-
+//    
+//    var images = animals.selectAll("svg")
+//                    .data(data)
+//                    .enter()
+//                    .append("image")
+//                    .attr("class", "images")
+//                    .attr("height", function(d) {
+//                        // console.log((1 / d.size) * 700)
+//                        return (1 / d.size) * 700
+//                    })
+//                    .attr("x", function(d) {
+//                        console.log(d.x)
+//                        return d.x + 30
+//                    })
+//                    .attr("y", function(d) {
+//                        return d.y + 30
+//                    })
+//                    .attr("xlink:href", function(d) {
+//                        // console.log(d.image);
+//                        return d.image
+//                    });
 
 
     
