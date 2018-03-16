@@ -23,7 +23,7 @@
    "population": "5,250",
    "trend": "Increasing",
    "size":"2.1",
-   "image": "/img/init/black_rhino.png", 
+   "image": "img/init/black_rhino.png", 
    "x": 10,
    "y": 0,
    "time": [{"year":"2011","status":"Critically Endangered", "image":"img/critical_end/black_rhino.png"},
