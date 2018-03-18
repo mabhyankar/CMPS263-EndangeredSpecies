@@ -152,27 +152,25 @@ function legend() {
     
     /* Pair lengend labal with appropriate colors */
     var color = d3.scaleOrdinal()
-                    .domain(["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Least Concern"])
-                    .range(["#cc0000", "#e69500", "#ffff00", "#999966", "#bbff99"]);
+                    .domain(["Critically Endangered", "Endangered", "Vulnerable", "Near Threatened", "Extinct"])
+                    .range(["#e80003", "#fe7504", "#ffb500", "#adc9a2", "#dfbe9f"]);
     
     /* Spacing for the rectangles and text for the legend */
-    var legendRectSize = 50;
-    var legendSpacing = 100;
+    var legendRectSize = 15;
+    var legendSpacing = 10;
     
-    /* Selecting the #key id from the HTML file and appending the legend */
+    /* Selecting the #key id from the HTML file and appending the legend */        
     var leg = d3.select("#key")
-            .append('g')
+            .append('svg')
             .attr("id", "legend")
             .selectAll("g")
             .data(color.domain())
             .enter()
-            .append("p")
+            .append('g')
                 .attr("class", "key")
+                .style("margin-bottom", 2)
                 .attr('transform', function(d, i) {
-                    var height = legendRectSize;
-                    var x = 0;
-                    var y = i * height;
-                    return 'translate(' + x + ',' + y + ')';
+                     return "translate(0," + i * 25 + ")";
                 });
 
     /* Appending the rectangle for the legend */
@@ -180,17 +178,20 @@ function legend() {
         .attr('width', legendRectSize)
         .attr('height', legendRectSize)
         .style('fill', color)
-        .style('stroke', color);
+        .style('stroke', color)
+        .style('padding-bottom', 2);
 
     /* Appending the text with the corresponding color form above */
     leg.append('text')
         .attr('x', legendRectSize + legendSpacing)
-        .attr('y', legendRectSize - legendSpacing)
-        .attr('dy', '1em')
+        .attr('dy', '.8em')
+        .attr('line-height', '2em')
         .text(function(d) { return d; })
+        .style('padding-bottom', 2);
+    
 }
 
-/* Function for the animal trends - increasing or decreasin */
+/* Function for the animal trends - increasing or decreasing */
 function trend() {
     
     /* Selecting the #key id from the HTML file and appending the trend legend */
