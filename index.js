@@ -196,20 +196,37 @@ function trend() {
     
     /* Selecting the #key id from the HTML file and appending the trend legend */
     var tren = d3.select("#key")
-            .append('g')
+            .append('svg')
             .attr("id", "trend")
-            .append("p")
-                .attr("class", "tren");
+            .append("g")
+            .attr("class", "tren");
                 
     /* Appending the word "Population" */
     tren.append('text')
         .style("font-weight", "bold")
-        .text("Population");
-    
-    
+        .text("Population")
+        .attr('y', 10);
     
     tren.append('text')
-        .text("Decreasing");
+        .text("\n"+"Increasing"+"\n")
+        .attr('y', 25);
+    
+    tren.append('image')
+        .attr("xlink:href","img/inc.png")
+        .attr("height", 70)
+        .attr("width", 70)
+        .attr('x', 70);
+    
+    tren.append('text')
+        .text("\n"+"Decreasing")
+        .attr('y', 105);
+    
+    tren.append('image')
+        .attr("xlink:href","img/dec.png")
+        .attr("height", 70)
+        .attr("width", 70)
+        .attr('x', 70)
+        .attr('y', 70);
     
 }
 
