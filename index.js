@@ -212,21 +212,22 @@ function trend() {
         .attr('y', 25);
     
     tren.append('image')
-        .attr("xlink:href","img/inc.png")
+        .attr("xlink:href","img/init/black_rhino.png")
         .attr("height", 70)
         .attr("width", 70)
-        .attr('x', 70);
+        .attr('x', 80)
+        .attr('y', -10);
     
     tren.append('text')
         .text("\n"+"Decreasing")
-        .attr('y', 105);
+        .attr('y', 80);
     
     tren.append('image')
-        .attr("xlink:href","img/dec.png")
+        .attr("xlink:href","img/dec_rhino.png")
         .attr("height", 70)
         .attr("width", 70)
-        .attr('x', 70)
-        .attr('y', 70);
+        .attr('x', 80)
+        .attr('y', 40);
     
 }
 
