@@ -1,118 +1,369 @@
-/*  Set the demensions and margins of the diagram */
 var margin = {top: 20, right: 300, bottom: 20, left: 120},
     width = 1000 - margin.right - margin.left,
     height = 900 - margin.top - margin.bottom,
     padding_left = 200;
 
+//global variables
+window.RECENT_VALUE={};
+window.CURRENT_YEAR;
+//for the current value of the habitat selected
+window.CURRENT_HABITAT="All";
+
 /* Draw map and legend to this id on the html page */
 var svg = d3.selectAll("#timeline").append('svg').attr("width", width).attr("height", height);
 
-/* Main program */
 side_panel();
 
+//slider
 var x = d3.scaleLinear()
-    .domain([1975, 2020])
+    .domain([1975,2018])
     .range([0, width+200])
     .clamp(true);
-
+	
 var slider = svg.append("g")
     .attr("class", "slider")
     .attr("transform", "translate(" + margin.left + "," + 450 + ")");
 
-    slider.append("line")
-        .attr("class", "track")
-        .attr("x1", x.range()[0])
-        .attr("x2", x.range()[1])
-      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
-        .attr("class", "track-inset")
-      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
-        .attr("class", "track-overlay")
-        .call(d3.drag()
-            .on("start.interrupt", function() { slider.interrupt(); })
-            .on("start drag", function() { hue(x.invert(d3.event.x)); }));
+var pct = Math.round(x.invert(x));
 
-    slider.insert("g", ".track-overlay")
-        .attr("class", "ticks")
-        .attr("transform", "translate(0," + 18 + ")")
+slider.insert("g", ".track-overlay")
+      .attr("class", "ticks")
+      .attr("transform", "translate(0," + 18 + ")")
       .selectAll("text")
-      .data(x.ticks(10))
+      .data(x.ticks(22))
       .enter().append("text")
-        .attr("x", x)
-        .attr("text-anchor", "middle")
-        .text(function(d) { return d ; });
+      .attr("x", x)
+      .attr("text-anchor", "middle")
+      .text(function(d) {return d ; });
+
+slider.append("line")
+      .attr("class", "track")
+      .attr("x1", x.range()[0])
+      .attr("x2", x.range()[1])
+      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+      .attr("class", "track-inset")
+      .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
+      .attr("class", "track-overlay")
+      .call(d3.drag()
+      .on("start.interrupt", function() { slider.interrupt(); })
+      .on("start drag", function() {slider_change(x.invert(d3.event.x),handle,x); }));
 
 var handle = slider.insert("circle", ".track-overlay")
     .attr("class", "handle")
     .attr("r", 9);
 
-    slider.transition() // Gratuitous intro!
-        .duration(750)
-        .tween("hue", function() {
-          var i = d3.interpolate(0, 70);
-          return function(t) { hue(i(t)); };
-        });
+slider.transition().duration(200);
 
-function hue(h) {
-  handle.attr("cx", x(h));
-}
-
-/* Getting data from the json file */
-d3.json("data.json", function(error, data) {
-    
+//initial data_load
+data_load();
+function data_load()
+{	
+	d3.json("data.json", function(error, data) {
     if (error) throw error;
-    
-    /* Converting the data into ints, strings accordingly 
-       Source: https://stackoverflow.com/questions/21033609/nested-json-array-and-d3js */
-    data.forEach(function(d) {                              
-        d.name = d.name;                          
+    data.forEach(function(d) 
+	{                              
+        d.name = d.name; 
+		RECENT_VALUE[d.name]="1975";
         d["scientific name"] = d["scientific name"];
         d.status = d.status;
         d.habitat = d.habitat;
         d.population = d.population;
         d.trend = d.trend;
         d.size = +d.size;
-        d.image = d.image;
-        // not sure about time, see reference
+		d.init=d.image;
+		d.x=d.x;
+		d.y=d.y;
+		CURRENT_YEAR="1975";
+		
+	});
+	
+	populate(data);
+}); 
+}
+
+//yearwise data populate
+function yearwise_data_load(year,habitat)
+{	
+
+	d3.json("data.json", function(error, data) {
+    CURRENT_YEAR=year;
+    if (error) throw error;
+    var final_data = [];
+	if(CURRENT_HABITAT=="All")
+	{
+    /* Converting the data into ints, strings accordingly 
+       Source: https://stackoverflow.com/questions/21033609/nested-json-array-and-d3js */
+    data.forEach(function(d) { 
+	
+		d.time_year=[];
+		d.time_image=[];
+		
+		for(var i in d.time)
+		{
+			d.time_image.push(d.time[i].image);
+		}
+		d.time_image.push(d.image);
+		for(var i in d.time)
+		
+			d.time_year.push(d.time[i].year);
+			d.time_year.push("1975");
+		//
+		if(parseInt(year)<parseInt(RECENT_VALUE[d.name]))
+		{
+			var data2={};
+			var index1=d.time_year.indexOf(RECENT_VALUE[d.name]);
+			data2.image=d.time_image[index1+1];
+			console.log(year,data2.image);
+			data2.name=d.name;
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			final_data.push(data2);
+			
+		}
+		if(d.time_year.includes(year)==true && year=="1975")
+		{
+			var data2={};
+			var index=d.time_year.indexOf(year);
+			data2.image=d.time_image[index];
+			data2.name=d.name;
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			final_data.push(data2);
+			
+		}
+		else if(d.time_year.includes(year)==true && year!="1975")
+		{
+			
+			var data2={};
+			var index=d.time_year.indexOf(year);
+			data2.name=d.name;
+			data2.image=d.time_image[index];
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			RECENT_VALUE[d.name]=year;
+
+			final_data.push(data2);
+			
+			
+			}
+		else
+			{
+			var data2={};
+			var rc=RECENT_VALUE[d.name];
+			
+
+			if(rc=="1975")
+			{
+				data2.image=d.image;
+			}
+			
+			else
+			{
+				data2.image=d.time_image[index];
+			}
+			data2.name=d.name;
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			final_data.push(data2);
+			}
+
     });
-    
-    /* Define tool tip */
-    var tip = d3.tip()
+	
+	}
+	else{
+		 data.forEach(function(d) { 
+	if(d.habitat==CURRENT_HABITAT)
+			{
+			
+		d.time_year=[];
+		d.time_image=[];
+		
+		for(var i in d.time)
+		{
+			d.time_image.push(d.time[i].image);
+		}
+		d.time_image.push(d.image);
+		for(var i in d.time)
+		
+			d.time_year.push(d.time[i].year);
+			d.time_year.push("1975");
+		if(parseInt(year)<parseInt(RECENT_VALUE[d.name])&&!d.time_year.includes(year))
+		{
+			var data2={};
+			var index1=d.time_year.indexOf(RECENT_VALUE[d.name]);
+			data2.image=d.time_image[index1+1];
+			data2.name=d.name;
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			final_data.push(data2);
+			
+		}
+		if(d.time_year.includes(year)==true && year=="1975")
+		{	RECENT_VALUE[d.name]="1975";
+			var data2={};
+			var index=d.time_year.indexOf(year);
+			data2.image=d.time_image[index];
+			data2.name=d.name;
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			final_data.push(data2);
+			
+		}
+		else if(d.time_year.includes(year)==true && year!="1975")
+		{
+			
+			var data2={};
+			var index=d.time_year.indexOf(year);
+			data2.name=d.name;
+			data2.image=d.time_image[index];
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			RECENT_VALUE[d.name]=year;
+
+			final_data.push(data2);
+			
+			
+			}
+			else
+			{
+			var data2={};
+			//console.log(year,d.name,RECENT_VALUE[d.name]);
+			var rc=RECENT_VALUE[d.name];
+			var index=d.time_year.indexOf(rc);
+			if(rc=="1975")
+			{
+				data2.image=d.image;
+			}
+			else
+			{
+				data2.image=d.time_image[index];
+			}
+			
+		
+			data2.name=d.name;
+			data2.size=d.size;
+			data2.x=d.x;
+			data2.y=d.y;
+			data2["scientific name"] = d["scientific name"];
+			data2.status = d.status;
+			data2.habitat = d.habitat;
+			data2.population = d.population;
+			final_data.push(data2);
+			}
+			}
+			
+			
+    });
+	
+	}
+	
+populate(final_data);
+   
+}); 
+}
+//slider_change function
+function slider_change(h,handle,x) {
+	handle.attr("cx", x(h));
+	var val=Math.floor(h);
+	yearwise_data_load(String(val),CURRENT_HABITAT);
+}
+
+//populating data
+function populate(data)
+{
+	
+var images = svg.append("svg").selectAll("svg")
+                .data(data)
+                .enter()
+                .append("image")
+                .attr("class", "images")
+				.attr("xlink:href", function(d) {return d.image;})
+				//.attr("width", function(d) {return (1/d.size) * 290;})
+				.attr("height", function(d) 
+					{
+						//console.log(d.name,(1/d.size) * 500);
+                      return (1/d.size) * 290;
+                    })
+				.attr("x",function(d) {return d.x;})
+				.attr("y",function(d) {return d.y;});
+var tip = d3.tip()
         .attr("class", "d3-tip")
         .offset([-10, 0])
         .html(function(d) {
             return d.name + "<br/> Scientific Name: " + d["scientific name"] + " <br/> Population: " + d.population + " <br/> Habitat: " + d.habitat;
-        });
-    
-    /* Adding images to canvas */
-    var images = svg.append("svg").selectAll("svg")
-                    .data(data)
-                    .enter()
-                    .append("image")
-                    .attr("class", "images")
-                    .attr("height", function(d) {
-                        // console.log((1 / d.size) * 700)
-                        return (1 / d.size) * 290
-                    })
-                    .attr("x", function(d) {
-                        return d.x
-                    })
-                    .attr("y", function(d) {
-                        return d.y
-                    })
-                    .attr("xlink:href", function(d) {
-                        return d.image
-                    });
-    
-    /* Calling the tool tip for the animals */
-    images.call(tip);
-    images.on("mouseover", tip.show);
-    images.on("mouseout", tip.hide);
-    
-}); // End bracket for d3.json
+        });		
+images.call(tip);
+images.on("mouseover", tip.show);
+images.on("mouseout", tip.hide);
+}
+//finding slider drag co-ordinates
+function dragged()
+{
 
+	var coordinates = [0, 0];
+    coordinates = d3.mouse(this);
+    var x1 = coordinates[0];
+    x1 = x1 > width ? width :
+    x1 < 0 ? 0 :
+    x1;
+	var pct = Math.round(x.invert(x1));
+
+}
+//status mapping to a numerical value
+function status_map(value)
+{
+	var result;
+	if(value=="Critically Endangered")
+		result=1;
+	else if(value=="Endangered")
+		result=2;
+	else if(value=="Vulnerable")
+		result=3;
+	else if(value=="Near Threatened")
+		result=4;
+	else if(value=="Extinct in the Wild")
+		result=5;
+	return result;
+}
 
 /* All of the function calls for the side panel */
 function side_panel() {
+	
     spacing();
     habitat();
     spacing();
@@ -125,28 +376,42 @@ function side_panel() {
 function habitat() {
     
     /* Pairing the value and text for the dropdown menu*/
-    var habit = [{value: "Tropical Forests" , text: "Tropical Forests"}, 
+    var habit = [{value: "All" , text: "All"},
+		{value: "Tropical Forests" , text: "Tropical Forests"}, 
                  {value: "Forests", text: "Forests"}, 
                  {value: "Oceans", text: "Oceans"}, 
                  {value: "Moist, Dry forests", text: "Moist, Dry forests"}, 
                  {value: "Temperate Forests", text: "Temperate Forests"}, 
                  {value: "Grasslands", text:"Grasslands" }, 
-                 {value: "Low Rocky Ridges", text: "Low Rocky Ridges"} ];
+                 {value: "Low Rocky Ridges", text: "Low Rocky Ridges"},
+		{value: "Wetlands", text: "Wetlands"},
+		{value: "Coastal Regions", text: "Coastal Regions"},
+		{value: "Snow", text: "Snow"}];
 
     
     /* Selecting the #key id from the HTML file and appending the dropdown
        Taking the array from above and placing it into the dropdown menu
     */
-    var hab = d3.select("#key")
-                .append('select')
-                .selectAll('select')
-                .data(habit)
-                .enter()
-                .append("option")
-                .attr("value", function(habit) { return habit.value; })
+var select = d3.select('#key')
+  .append('select')
+  	.attr('class','select')
+    .on('change',onchange)
+	
+var options = select
+  .selectAll('option')
+	.data(habit).enter()
+	.append('option')
+		.attr("value", function(habit) { return habit.value; })
                 .text(function(habit) { return habit.text; });
+   
 }
-
+//dropdown change function
+function onchange() {
+	d3.selectAll("svg > image.images").remove();
+	selectValue = d3.select('select').property('value')
+	CURRENT_HABITAT=selectValue;
+	yearwise_data_load(CURRENT_YEAR,selectValue);
+}
 /* Function for the legend - critically endangered, endangered, etc */
 function legend() {
     
@@ -222,8 +487,8 @@ function trend() {
         .text("\n"+"Decreasing")
         .attr('y', 80);
     
-    tren.append('image')
-        .attr("xlink:href","img/dec_rhino.png")
+  tren.append('image')
+        .attr("xlink:href","img/init/leopard.png")
         .attr("height", 70)
         .attr("width", 70)
         .attr('x', 80)
